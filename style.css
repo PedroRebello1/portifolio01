@@ -1,0 +1,117 @@
+:root {
+      --m: 4rem;
+      
+      --red: #FF6565;
+      --pink: #FF64F9;
+      --purple: #6B5FFF;
+      --blue: #4D8AFF;
+      --green: #5BFF89;
+      --yellow: #FFEE55;
+      --orange: #FF6D1B;
+      
+    }
+
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+section {
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1e1f26;
+}
+
+.aboutSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 2em;
+    box-sizing: border-box;
+    gap: 2em;
+    padding-top: 5%;
+}
+
+.secondary-title {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 5vw;
+    margin: 0;
+    padding-bottom: 0.5rem;
+    letter-spacing: 0.5rem;
+    color: #03dac6;
+    transition: all 0.3s ease;
+    z-index: 3;
+}
+
+.secondary-title:hover {
+    transform: translate3d(0, -10px, 22px);
+    color: #ff0266;
+    cursor: pointer;
+}
+
+.aboutDiv {
+    max-width: 60%;
+    margin-left: 5%;
+    margin-right: 2.5%;
+}
+
+.aboutText {
+    max-width: 80%;
+    line-height: 1.5;
+    color: #fff;
+}
+
+.pfp {
+    flex-shrink: 0;
+    max-width: 30%;
+    overflow: hidden;
+    margin-right: 5%;
+    margin-left: 2.5%;
+    border: calc(0.08 * var(--m)) solid transparent;
+    border-radius: calc(0.7 * var(--m));
+    background:linear-gradient(#ffffff, #ffffff), linear-gradient(#ffffff 50%, rgba(18, 18, 19, 0.6) 80%, rgba(18, 18, 19, 0)),  linear-gradient(90deg, var(--orange), var(--yellow), var(--green), var(--blue), var(--purple), var(--pink), var(--red));
+    background-origin: border-box;
+    background-clip: padding-box, border-box, border-box;
+    background-size: 200%;
+    animation: animate 2s infinite linear;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.pfp img {
+    width: 100%;
+    height: 90%;
+    object-fit: fill;
+    z-index: 2;
+}
+
+.pfp::before {
+    content: '';
+    background: linear-gradient(90deg, var(--orange), var(--yellow), var(--green), var(--blue), var(--purple), var(--pink), var(--red));
+    height: 15%;
+    width: 27%;
+    position: absolute;
+    bottom: 0;
+    bottom: -20%;
+    z-index: 1;
+    background-size: 200%;
+    animation: animate 2s infinite linear;
+    filter: blur(calc(0.8 * 3rem));
+  }
+
+@keyframes animate {
+    0% {background-position: 0}
+    100% {background-position: 200%}
+  }
